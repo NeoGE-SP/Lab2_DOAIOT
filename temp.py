@@ -1,4 +1,3 @@
-import math
 
 def display_main_menu():
     print("Enter a list of numbers, separated by a comma to represent the temperatures: ")
@@ -26,6 +25,7 @@ def find_min_max(temps):
         elif temps[i] > max:
             max = temps[i]
     print("The Maximum Temperature is:", max, "\nThe Minimum Temperature is:", min)
+    return [min,max]
 
 
 def sort_temperature(temps):
@@ -34,13 +34,14 @@ def sort_temperature(temps):
 
 
 def cal_median_temp(temps):
-    pos = (len(temps)-1)/2
-    median = 0
-    if pos%2 == 0:
-        median = temps[int(pos)]
-    else:
+    if len(temps)%2 == 0:
+        pos = len(temps)/2
         median = (temps[int(pos)] + temps[int(pos)+1])/2
-    
+    else:
+        pos = (len(temps) - 1)/2
+        median = temps[int(pos)]
+
+
     return median
 
 
